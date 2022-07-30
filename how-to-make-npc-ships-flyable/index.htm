@@ -49,6 +49,7 @@
                     <li class="sub"><a href="#section-8-2">8.2 Rotation</a></li>
                     <li class="sub"><a href="#section-8-3">8.3 Properties of all Player Ships</a></li>
                     <li class="main"><a href="#section-9">Credits</a></li>
+                    <li class="main"><a href="#section-10">Changelog</a></li>
                 </ul>
             </section>
         </aside>
@@ -3640,6 +3641,9 @@
                     There we can see that the Red Devils and the Steel Rats are actually friendly to each other, so I guess we should indeed allow them to sell our ship.
                 </p>
                 <p>
+                    <img src="images/5_1-15_FACTIONS.DAT.lua_Steel_Rats.jpg" alt="5_1-15_FACTIONS.DAT.lua_Steel_Rats.jpg"/>
+                </p>
+                <p>
                     Next, should we add a faction? The DoubleJacks for example? They're also a sort-of-pirate faction with a base.<br>
                     But when we look at the faction file again, we can see they they are hostile towards the Steel Rats, so I guess that's a no then.
                 </p>
@@ -4090,6 +4094,33 @@
                     where <i>[1]</i> is the Quaternion's <i>X</i> entry, <i>[2]</i> is <i>Y</i>, <i>[3]</i> is <i>Z</i>, and <i>[4]</i> is <i>W</i>.
                 </p>
                 <p>
+                    For example, this rotation:
+                </p>
+<pre>
+["ROTATIONS"] = {  -- X, Y, Z, W (Quaternion)
+    [1] = -0.57589799165726,
+    [2] = 0.40224999189377,
+    [3] = 0.38844799995422,
+    [4] = 0.59636002779007,
+},
+</pre>
+                <p>
+                    Would represent the following human-readable 3-coordinate system (in degrees):
+                </p>
+<pre>
+X: -88.000012078056°
+Y:  -0.000011737393°
+Z:  68.000034790779°
+</pre>
+                <p>
+                    Or in a different notation:
+                </p>
+<pre>
+ROLL:  -88.000012078056°
+PITCH:  -0.000011737393°
+YAW:    68.000034790779°
+</pre>
+                <p>
                     The math for converting a Quaternion into a human-readable 3-coordinate system is non-trivial, you can read up on it here:<br>
                     <a target="_blank" href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/">http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/</a><br>
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles</a><br>
@@ -4106,6 +4137,9 @@
                     I actually experimented with adding a conversion function that would display the so called "Euler Angles" instead (in form of <i>X</i>, <i>Y</i>, <i>Z</i>,
                     or resp. <i>YAW</i>, <i>PITCH</i>, <i>ROLL</i>), however when converting between a Quaternion and Euler Angles there's always the possibility of ambiguity,
                     and so a "bit-perfect" conversation between the LAYOUT and LUA file wasn't possible anymore, which is why I decided against it.
+                </p>
+                <p>
+                    So if you want to change the rotation of something, you'll have to do it the hard way by using one of the calculators yourself (or copying already existing rotations).
                 </p>
             </section>
 
@@ -4193,10 +4227,24 @@
             <section id="section-9">
                 <h2>Credits</h2>
                 <ul>
-                    <li>hhrhhr for creating the original mod tools, without him none of this would've been possible</li>
-                    <li>Ross_R of the RGO Discord channel, who made me double check the weapon hardpoints</li>
+                    <li>hhrhhr for creating <a target="_blank" href="https://bitbucket.org/hhrhhr/lua-utils-for-rebel-galaxy-outlaw/">the original mod tools</a>, without him none of this would've been possible</li>
+                    <li>Ross_R of the <a target="_blank" href="https://discord.gg/DQ3Akuhn">RGO Discord channel</a>, who made me double check the weapon hardpoints</li>
                     <li>DoubleDamage for creating the game</li>
                     <li>Anybody reading this lengthy tutorial</li>
+                </ul>
+            </section>
+        </article>
+
+
+        <!-- Changelog -->
+        <article id="part-10">
+            <section id="section-10">
+                <h2>Changelog</h2>
+                <ul>
+                    <li>
+                        <strong>2022-07-30</strong><br>
+                        Initial Release
+                    </li>
                 </ul>
             </section>
         </article>
