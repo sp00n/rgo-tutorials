@@ -82,7 +82,7 @@
                 </p>
                 <p>
                     My other mods are available on Nexus Mods:<br>
-                    <a target="_blank" href="https://www.nexusmods.com/rebelgalaxyoutlaw">https://www.nexusmods.com/rebelgalaxyoutlaw</a>.
+                    <a target="_blank" href="https://www.nexusmods.com/rebelgalaxyoutlaw">https://www.nexusmods.com/rebelgalaxyoutlaw</a>
                 </p>
             </section>
 
@@ -105,7 +105,8 @@
                 <p>
                     I have also created a couple of batch files that will help you with extracting all of the <i>DATAx.PAK</i> file, and also help you with quickly creating a new mod file,
                     without going through the hassle of manually converting each file separately.<br>
-                    You can find these batch files here: <a target="_blank" href="https://github.com/sp00n/rgo-mod-helpers">https://github.com/sp00n/rgo-mod-helpers</a>
+                    You can find these batch files here:<br>
+                    <a target="_blank" href="https://github.com/sp00n/rgo-mod-helpers">https://github.com/sp00n/rgo-mod-helpers</a>
                 </p>
                 <p>
                     Both the LUA executable and the batch helpers should be placed in a directory that is globally accessible, e.g. one that is in your <i>PATH</i> variable.<br>
@@ -534,7 +535,7 @@
                 </p>
                 <p>
                     We also see that the hardpoint number for missiles is 3 and 4, which will not work for a player ship either. We will also need to change this,
-                    but that also requires editing the .LAYOUT file, so we postpone it for now.
+                    but that also requires editing the <i>.LAYOUT</i> file, so we postpone it for now.
                 </p>
 
                 <p>
@@ -750,7 +751,7 @@
                 <h2>Step 2: Modifying the .LAYOUT</h2>
 
                 <p>
-                    In this step we're going to modify the .LAYOUT file so that we can actually use the missile slots and the turrets slots.<br>
+                    In this step we're going to modify the <i>.LAYOUT</i> file so that we can actually use the missile slots and the turrets slots.<br>
                     We're also going to break apart the grouped weapon slots so that each weapon will have its own selectable hardpoint, both in the Ship Dealer and in the Gun selection.
                 </p>
             </section>
@@ -877,7 +878,8 @@
                 <p>
                     As the <i>HARDPOINT_NUMBER_1</i> value before was <i>2</i>, we treat this as the <em>second</em> turret (Beta), although it appeared as the first
                     entry in the lua file. Of course you could also treat it as the first turret (Alpha), but I wanted to stick to the original ordering.<br>
-                    The mounting locations in the .layout/.lua file don't necessarily appear in the order in that they're actually defined, and only the definition is important, not the actual location in the file.
+                    The mounting locations in the <i>.layout</i>/<i>.lua</i> files don't necessarily appear in the order in that they're actually defined,
+                    and only the definition is important, not the actual location in the file.
                 </p>
 
                 <p>
@@ -1589,7 +1591,7 @@
                 <p>
                     <span class="note">
                         <a target="_blank" href="https://www.irfanview.com/main_download_engl.htm">IrfanView</a> with <a target="_blank" href="https://www.irfanview.com/plugins.htm">plugins</a>
-                        can open and display .DDS files, but it cannot edit them, so it's good for quickly viewing the file, but for editing you need another program (see <a href="#section-0">step 0</a>).
+                        can open and display .DDS files, but it cannot edit them, so it's good for quickly viewing the file, but for editing you need another program (see <a href="#section-0-2">Requirements</a>).
                     </span>
                 </p>
                 <p>
@@ -1651,18 +1653,19 @@
                 <p>
                     Then do the same for the <i>12_HUDIMAGES_ZANDT.IMAGESET.lua</i> file, but this time use the lowercase strings:
                     replace <i>medfighterb</i> with <i>zandt</i>.<br>
+                    (Yes, capitalization is all over the place in these files...)
                 </p>
                 <p>
-                    There's one adjustment we need to make in the IMAGESET file.<br>
+                    There's one adjustment we need to make in this <i>IMAGESET</i> file.<br>
                     The <i>content</i> variable has an <i>n</i> property, which was originally set to <i>IMAGESET_HUDIMAGES_MEDFIGHTERB</i> and should now, after replacing the string,
                     read <i>IMAGESET_HUDIMAGES_zandt</i>.
                 </p>
                 <p>
-                    There issue here is a bit complicated, basically the imageset file needs have its own id. The id was "masked" behind the original string <i>IMAGESET_HUDIMAGES_MEDFIGHTERB</i>,
+                    There issue here is a bit complicated, basically the imageset file needs to have its own id. The id was "masked" behind the original string <i>IMAGESET_HUDIMAGES_MEDFIGHTERB</i>,
                     which, when converting the file back to a .dat file, is internally translated into the id value 253179603.<br>
                     We need a new id for this file, and since I've chosen to the 99xxxxxxx "namespace" for my mod ids, and since the ship itself has the id <i>990000001</i>,
                     the imageset receives the id <i>990000002</i>.<br>
-                    We enter this as <i>n="$990000002"</i> for the content variable (the $ denotes that an id is following for the lua2dat converter).
+                    We enter this as <i>n="$990000002"</i> for the content variable (the <i>$</i> denotes that an id is following for the lua2dat converter).
                 </p>
                 <p>
                     <img src="images/3_3_2-12_HUDIMAGES_ZANDT.IMAGESET.lua_ID_Value.jpg" alt="3_3_2-12_HUDIMAGES_ZANDT.IMAGESET.lua.ID.value.jpg"/>
