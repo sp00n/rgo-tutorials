@@ -799,9 +799,14 @@
                     So if our ship for example goes from the Alpha Turret directly to the Eta and Nu Turret, like our Zandt does, we won't be able to switch to these turrets during flight.
                 </p>
                 <p>
+                    Another limitation is that only the first 5 turrets will be selectable during flight, i.e. those with a <i>HARDPOINT_NUMBER_1</i> value of <i>1</i> (see below).<br>
+                    The other turrets, with a <i>HARDPOINT_NUMBER_1</i> value of <i>2</i> or <i>3</i> will still show up in the Equipment Bay, but you will not be able to manually control them.
+                </p>
+                <p>
                     <span class="note">
-                        The turrets will (probably, untested) still work with auto-fire, but you cannot manually control them. So if you actually wanted to add bot-turrets, let's say for a big freighter with 
-                        multiple automated turrets, this would be the way you could achieve this. Or maybe even a capship?
+                        The non-selectable turrets will still work with auto-fire, but you cannot manually control them. So if you actually wanted to add bot-turrets,
+                        let's say for a big freighter with multiple automated turrets, assigning them to the "second row" of turrets (<i>HARDPOINT_NUMBER_1</i> value of <i>2</i>)
+                        would be a way to achieve this.
                     </span>
                 </p>
 
@@ -3973,7 +3978,7 @@
                 <h4>15_ZANDT_PLAYER.DAT.lua</h4>
                 <p>
                     This is relatively easy, in our <i>15_ZANDT_PLAYER.DAT.lua</i> file there is a <i>CHASE_CAM_VERTICAL_MULT</i> property, which currently has the value <i>2.5</i>.<br>
-                    Changing this to 1.7 seems to work pretty well.
+                    Changing this to <i>1.7</i> seems to work pretty well.
                 </p>
                 <p>
                     <img src="images/7_4-15_ZANDT_PLAYER.DAT.lua_Chase_Cam_1,7.jpg" alt="7_4-15_ZANDT_PLAYER.DAT.lua_Chase_Cam_1,7.jpg"/>
@@ -4012,6 +4017,35 @@
                         </tr>
                     </tbody>
                 </table>
+                
+                <p>
+                    Another value that might be interesting here is the <i>DOLLY_MULT</i> property, which seems to define distance to the craft when in third person view.<br>
+                    I don't know if it has any other effect, the name of the property is ambiguous.
+                </p>
+                <p>
+                    <img src="images/7_4-15_ZANDT_PLAYER.DAT.lua_DOLLY_MULT.jpg" alt="7_4-15_ZANDT_PLAYER.DAT.lua_DOLLY_MULT.jpg"/>
+                </p>
+                <table class="chase-cams">
+                    <thead>
+                        <tr>
+                            <th>DOLLY_MULT 0.75 (Original)</th>
+                            <th>DOLLY_MULT 0.30 (Closer)</th>
+                            <th>DOLLY_MULT 1.50 (Further Away)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a target="_blank" href="images/7_3-DOLLY_MULT_0.75.jpg"><img src="images/7_3-DOLLY_MULT_0.75.jpg" alt="7_3-DOLLY_MULT_0.75.jpg"/></a></td>
+                            <td><a target="_blank" href="images/7_3-DOLLY_MULT_0.30.jpg"><img src="images/7_3-DOLLY_MULT_0.30.jpg" alt="7_3-DOLLY_MULT_0.30.jpg"/></a></td>
+                            <td><a target="_blank" href="images/7_3-DOLLY_MULT_1.50.jpg"><img src="images/7_3-DOLLY_MULT_1.50.jpg" alt="7_3-DOLLY_MULT_1.50.jpg"/></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    So we might increase our <i>DOLLY_MULT</i> slightly. But as I discovered the effect of this property only after I had already finished the tutorial (and the mod),
+                    I just left it at <i>0.75</i>.
+                    It's fine, although maybe not optimal.
+                </p>
             </section>
 
             <section id="section-7-5">
@@ -4247,6 +4281,10 @@ YAW:    68.000034790779°
                     <li>
                         <strong>2022-07-30</strong><br>
                         Initial Release
+                    </li>
+                    <li>
+                        <strong>2022-08-01</strong><br>
+                        Added <i>DOLLY_MULT</i> and more information about turrets.
                     </li>
                 </ul>
             </section>
